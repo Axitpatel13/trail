@@ -1,0 +1,46 @@
+{% extends 'main_base.html' %}
+{% block content %}
+<center>
+  <div class="card" style="width: 60%; border-radius: 50px; margin-top: 50px;">
+    <div class="card-body">
+      <h5 class="card-title">Miner: <strong>{{miner.username}}</strong></h5>
+      <h5 class="card-title">Email: <strong>{{miner.email}}</strong></h5>
+      <p class="card-text">Miner Points: <strong>{{miner.points}}</strong></p>
+      {% if miner.points >= 0.5 %}
+      <a href="{% url 'payment_info' %}" class="btn btn-primary">Withdraw</a>
+      {% else %}
+      <a href="#" class="btn btn-disable" style="background-color: grey;">Withdraw</a>
+      {% endif %}
+      <a href="{% url 'dashboard' %}" class="btn btn-danger">Mine</a>
+      <br>
+    </div>
+    <p>Withdrawal Will be Availiable Once you have 500 points</p>
+    <br>
+
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button"
+            data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Payment Info Logs
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            {% for i in payment_info %}
+            <p>Date : <strong>{{i.date}}</strong></p>
+            <p>Paypal Address : <strong>{{i.paypal_address}}</strong></p>
+            <p>Btc Address : <strong>{{i.btc_address}}</strong></p>
+            <p>Payonner Address : <strong>{{i.payoneer_address}}</strong></p>
+            <p>Payment Status : <strong>{{i.status}}</strong></p>
+            <hr>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+{% endblock content %}

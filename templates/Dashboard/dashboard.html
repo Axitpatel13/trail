@@ -1,0 +1,167 @@
+{% extends 'main_base.html' %}
+{% block content %}
+<style>
+  *{
+    padding: 0;
+    margin:0;
+    width: auto;
+  }
+</style>
+<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas"
+  aria-labelledby="offcanvasLabel">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title" id="offcanvasLabel">Alert</h3>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+      aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    You are earning less because you might belong to the low tier CPM country,
+    Use a VPN to make more money
+    <br>
+    <a href="https://www.highcpmrevenuegate.com/ffc1yvmce3?key=5b6de93dc77f3718e8e8e1749e5c95a3" class="btn btn-danger">MINE MORE?</a>
+  </div>
+</div>
+<center>
+  <hr>
+  <table>
+    <tr>
+      <td>
+        <br>
+        <!--(YOUR-AD-CODE-GOES-HERE)-->
+        <script type="text/javascript">
+                atOptions = {
+                  'key' : '9dd00681de19c276cb39e18dd1e4a0c5',
+                  'format' : 'iframe',
+                  'height' : 90,
+                  'width' : 728,
+                  'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitablecreativeformat.com/9dd00681de19c276cb39e18dd1e4a0c5/invoke.js"></scr' + 'ipt>');
+              
+                setInterval(reloadScript, 10000);
+              </script>
+        <!--(======================)-->
+        <br><br>
+        <!--(2ND-AD-CODE-GOES-HERE)-->
+        <script type="text/javascript">
+                atOptions = {
+                  'key' : '60adf0eea4c7cfafa13ee9a58cd3022a',
+                  'format' : 'iframe',
+                  'height' : 250,
+                  'width' : 300,
+                  'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitablecreativeformat.com/60adf0eea4c7cfafa13ee9a58cd3022a/invoke.js"></scr' + 'ipt>');
+                
+                setInterval(reloadScript, 10000);
+              </script>
+        <!--(======================)-->
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <br>
+        <center>
+          <form method="POST" id="timer-form">
+            {% csrf_token %}
+            <input type="hidden" name="timer_completed" value="false"
+              id="timer-completed">
+            <p id="timer">Time remaining: 10:00</p>
+            <button type="button" class="btn btn-primary" id="start-button">Start Timer</button>
+          </center>
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!--(YOUR-2ND-CODE-GOES-HERE)-->
+          <script type="text/javascript">
+                atOptions = {
+                  'key' : '9dd00681de19c276cb39e18dd1e4a0c5',
+                  'format' : 'iframe',
+                  'height' : 90,
+                  'width' : 728,
+                  'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitablecreativeformat.com/9dd00681de19c276cb39e18dd1e4a0c5/invoke.js"></scr' + 'ipt>');
+                </script>
+          <!--(======================)-->
+          <br><br>
+          <!--(YOUR-AD-CODE-GOES-HERE)-->
+          <script type="text/javascript">
+                atOptions = {
+                  'key' : '60adf0eea4c7cfafa13ee9a58cd3022a',
+                  'format' : 'iframe',
+                  'height' : 250,
+                  'width' : 300,
+                  'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitablecreativeformat.com/60adf0eea4c7cfafa13ee9a58cd3022a/invoke.js"></scr' + 'ipt>');
+                </script>
+          <!--(======================)-->
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <center>
+          <hr>
+            <a href="https://www.highcpmrevenuegate.com/ffc1yvmce3?key=5b6de93dc77f3718e8e8e1749e5c95a3" class="btn btn-danger">MINE MORE?</a>
+          <hr>
+          </center>
+        </td>
+      </tr>
+    </table>
+    <hr>
+  </center>
+  <div class="card">
+    <div class="card-body">
+      <center>
+        <h5 class="card-title">Name: {{miner.username}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Points:
+          {{miner.points}}</h6>
+        <p class="card-text">Crypto Key: {{miner.crypto_wallet}}</p>
+      </center>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const timerForm = document.getElementById("timer-form");
+    const timerCompletedInput = document.getElementById("timer-completed");
+    let timer;
+    const timerElement = document.getElementById("timer");
+    const startButton = document.getElementById("start-button");
+    startButton.addEventListener("click", function () {
+      const currentTime = Math.floor(Date.now() / 1000); // Get current timestamp in seconds
+      const lastMiningTimestamp = localStorage.getItem("lastMiningTimestamp") || 0;
+      // Check if the cooldown period (10 minutes = 600 seconds) has passed
+      if (currentTime - lastMiningTimestamp >= 600) {
+        // Allow mining and set a new timestamp
+        localStorage.setItem("lastMiningTimestamp", currentTime);
+        startTimer(10 * 60); // 10 minutes in seconds
+      } else {
+        // Display a message indicating the cooldown period
+        alert("Please wait for the cooldown period (10 Minute) to finish before mining again.");
+      }
+    });
+    function startTimer(durationInSeconds) {
+      let seconds = durationInSeconds;
+      clearInterval(timer); // Clear any existing timer
+      timer = setInterval(function () {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        timerElement.innerHTML = `Time remaining: ${minutes}:${remainingSeconds
+          .toString()
+          .padStart(2, "0")}`;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          timerCompletedInput.value = "true"; // Set the input value to true
+          timerForm.submit(); // Submit the form via AJAX
+        }
+        seconds--;
+      }, 1000);
+    }
+  });
+</script>
+{% endblock content %}

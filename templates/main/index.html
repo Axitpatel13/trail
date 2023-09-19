@@ -1,0 +1,254 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% block content %}
+<!-- slider section -->
+    <section class="slider_section ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/btc.jpg' %}" style="background: purple; box-shadow: 2px 2px 2px 2px black; border-radius: 30px;" alt="">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <h1>
+                      {{site_info.site_title}}
+                    </h1>
+                    <p>
+                      {{site_info.description}}
+                    </p>
+                    {% if user.is_authenticated %}
+                    <div class="btn-box">
+                      <a href="{% url 'dashboard' %}" class="btn1" style="background: purple; box-shadow: 2px 2px 2px 2px black;">
+                        Start Mining
+                      </a>
+                    </div>
+                    {% else %}
+                    <div class="btn-box">
+                      <a href="{% url 'register' %}" class="btn1" style="background: white; color: black;">
+                        Register
+                      </a>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+  <!-- service section -->
+  <section class="service_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Our Services
+        </h2>
+        <p>
+          The Services Offered at the {{site_info.site_title}}
+        </p>
+      </div>
+      <div class="row">
+        {% for service in services %}
+        <div class="col-md-6 col-lg-3">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/service.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                {{service.title}}
+              </h5>
+              <p>
+                {{service.description}}
+              </p>
+              <br>
+              <p>
+                More Information on Dashboard Accordin
+              </p>
+              {% if user.is_authenticated %}
+              <a href="{% url 'dashboard' %}">
+              {% else %}
+              <a href="{% url 'register' %}">
+              {% endif %}
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="btn-box">
+        <a href="#about">
+          Learn More About {{site_info.site_title}}
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end service section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              {{about_us.description}}
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/about.jpg' %}" style="border-radius: 180px 0px 180px 0px;" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+  <!-- case section -->
+  <section class="case_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Our Case Studies 
+        </h2>
+      </div>
+      <div class="row">
+        {% for case in case_studies %}
+        <div class="col-md-6">
+          <div class="box">
+            <div class="detail-box">
+              <h5>
+              {{case.title}}
+              </h5>
+              <p>
+              {{case.description}}
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  </section>
+  <!-- contact section -->
+<br><br><br>
+  <section class="contact_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5 col-lg-4 offset-md-1">
+          <div class="form_container">
+            <div class="heading_container">
+              <h2>
+                Request A Call back
+              </h2>
+            </div>
+            <form action="" method="POST">
+              {% csrf_token %}
+              <div>
+                <input type="text" name="full_name" placeholder="Full Name " />
+              </div>
+              <div>
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" name="phone" placeholder="Phone number" />
+              </div>
+              <div>
+                <input type="text" name="message" class="message-box" placeholder="Message" />
+              </div>
+              <div class="d-flex ">
+                <button type="submit">
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-7 px-0">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+  <div class="footer_container">
+    <!-- info section -->
+
+    <section class="info_section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 ">
+            <div class="info_detail">
+              <h4>
+                {{site_info.site_title}}
+              </h4>
+              <p>
+                {{site_info.description}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2 mx-auto">
+            <div class="info_link_box">
+              <h4>
+                Links
+              </h4>
+              <div class="info_links">
+                <a class="" href="index.html">
+                  Home
+                </a>
+                <a class="" href="about.html">
+                  About
+                </a>
+                <a class="" href="service.html">
+                  Services
+                </a>
+                <a class="" href="contact.html">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ">
+            <h4>
+              {{site_info.site_title}}
+            </h4>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-0 ml-auto">
+            <div class="info_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end info section -->
+    {% endblock content %}

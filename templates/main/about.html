@@ -1,0 +1,134 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% block content %}
+<!-- about section -->
+  <section class="about_section layout_padding layout_margin">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              The Bitcoin Miner is a platform is a Mining platform created for cloud mining. The main purpose behind 
+              creating such a platform is to provide everyone with the privage of Crypto mining.
+              The Platform is created with an idea of the Founder which lead to bringing a team of cloud computing engineers,
+              and block chain developers and with team effort of 7 specialized developer we created a platform which allows 
+              you to mine Bitcoin for no charges,at <strong> <u> 0 Transaction fee </u> </strong>. 
+              <br><br>
+              Why Free?<br>
+              : We recover the mining power cost through the ads revenue which allows us to bear up the 
+              mining expences. It requires a huge computing power to mine bitcoin which is out the capabilities
+              of an average PC out there, even the extraordinary would take a loads of time. So, to bear up the 
+              expences and deliver you coins we use ads.
+            </p>
+            <a href="{% url 'home' %}">
+              Back
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/btc.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+  <div class="footer_container">
+    <!-- info section -->
+    <section class="info_section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 ">
+            <div class="info_detail">
+              <h4>
+                {{site_info.site_title}}
+              </h4>
+              <p>
+                {{site_info.description}}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2 mx-auto">
+            <div class="info_link_box">
+              <h4>
+                Links
+              </h4>
+              <div class="info_links">
+                <a class="" href="index.html">
+                  Home
+                </a>
+                <a class="" href="about.html">
+                  About
+                </a>
+                <a class="" href="service.html">
+                  Services
+                </a>
+                <a class="" href="contact.html">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ">
+            <h4>
+              Subscribe
+            </h4>
+            <form action="#">
+              <input type="text" placeholder="Enter email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-0 ml-auto">
+            <div class="info_contact">
+              <h4>
+                Address
+              </h4>
+              <div class="contact_link_box">
+                <a href="">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span>
+                    Location
+                  </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <span>
+                    Call +01 1234567890
+                  </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <span>
+                    demo@gmail.com
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="info_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end info section -->
+    {% endblock content %}

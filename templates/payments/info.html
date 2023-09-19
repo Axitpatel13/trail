@@ -1,0 +1,44 @@
+{% extends 'main_base.html' %}
+{% block content %}
+<form method="POST">
+    <center>
+        <div class="container-fluid py-5 mb-5">
+            <div class="container py-5">
+                <div class="container">    
+                <hr>
+                <h3>Submit Your Payment Info</h3>
+                <hr>        
+                {% csrf_token %}
+                <br>
+                {% for i in message %}
+                {{i}}
+                {% endfor %}
+                <div class="container" style="width:250px;">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">Paypal</span>   
+                        <input type="text" class="form-control" placeholder="Paypal" name="paypal" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    <h5 style="margin-top:2%;">OR</h5>
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">Payooner</span>   
+                        <input type="text" class="form-control" placeholder="Payooner" name="payooner" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                    <h5 style="margin-top:2%;">OR</h5>
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">BTC</span>   
+                        <input type="text" class="form-control" placeholder="BTC" name="btc" aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+                <br>
+                {% if user.is_authenticated %}
+                <button type="submit" class="btn btn-success" >Submit</button>
+                {% else %}
+                <a herf="{% url 'register' %}"><button type="button" class="btn btn-success" >Register first</button></a>
+                {% endif %}
+                <hr>
+                </div>
+            </div>
+        </div>
+    </center>
+</form>
+{% endblock content %}
